@@ -8,10 +8,14 @@ jobs:
     comments-with-username:
         runs-on: ubuntu-latest
         steps:
-            - name: "Create a comment"
-              uses: peter-evans/create-or-update-comment@v1
+            - name: Create comment
+              uses: peter-evans/create-or-update-comment@v3
               with:
-                  issue-number: ${{ github.event.issue.number }}
+                  issue-number: 1
                   body: |
-                      Hello @${{ github.event.issue.user.login }}! Thank you for creating this issue.
-                  reactions: "+1"
+                    This is a multi-line test comment
+                    - With GitHub **Markdown** :sparkles:
+                    - Created by [create-or-update-comment][1]
+        
+                    [1]: https://github.com/peter-evans/create-or-update-comment
+                  reactions: '+1'
