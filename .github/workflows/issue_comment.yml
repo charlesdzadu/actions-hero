@@ -8,6 +8,9 @@ jobs:
     comments-with-username:
         runs-on: ubuntu-latest
         steps:
-            - name: "Dump event context"
-              run : echo "${{ toJson(github.event) }}" | jq
-              shell: bash
+            - name: "Create a comment"
+              uses: peter-evans/create-or-update-comment@v1
+              with:
+                  issue-number: ${{ github.event.issue.number }}
+                  body: "Hello @${{ github.event.issue.user.login }}! Thank you for creating this issue."
+                  reactions: "+1"
