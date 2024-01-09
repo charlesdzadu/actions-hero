@@ -12,5 +12,6 @@ jobs:
               uses: peter-evans/create-or-update-comment@v1
               with:
                   issue-number: ${{ github.event.issue.number }}
-                  body: "Hello @${{ github.event.issue.user.login }}! Thank you for creating this issue."
+                  body: |
+                      Hello @${{ github.event.issue.user.login }}! Thank you for creating this issue.
                   reactions: "+1"
